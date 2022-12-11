@@ -36,7 +36,7 @@ function createElemWithText(htmlElem = "p", textContent = "", className = "") {
 
     let options = [];
     
-    if(users != null) {
+    if(users) {
         
         for(let i = 0; i < users.length; i++) {
           let optionElem = document.createElement('option');
@@ -66,7 +66,7 @@ function createElemWithText(htmlElem = "p", textContent = "", className = "") {
     if(!postID) { return undefined; } 
     
     else {
-      let section = document.querySelector(`[data-post-id='${postID}']`);
+      let section = document.querySelector(`section[data-post-id='${postID}']`);
       
       if(section) {
         section.classList.toggle("hide");
@@ -244,7 +244,6 @@ function createElemWithText(htmlElem = "p", textContent = "", className = "") {
     
       for(let i in options) {
         selectMenu.append(options[i]);
-        console.log(selectMenu[i].textContent);
       }
       return selectMenu;
     }
@@ -551,7 +550,6 @@ function createElemWithText(htmlElem = "p", textContent = "", className = "") {
       document.querySelector('#selectMenu').disabled = true;
     
       let userID = event?.target?.value || 1;
-      console.log(userID);
       let posts = await getUserPosts(userID);
       let refreshPostsArray = await refreshPosts(posts);
     
@@ -600,3 +598,4 @@ function createElemWithText(htmlElem = "p", textContent = "", className = "") {
     menu.addEventListener('change', selectMenuChangeEventHandler, false);
     document.addEventListener("DOMContentLoaded", initApp, false);
   }
+  initApp();
