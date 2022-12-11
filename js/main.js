@@ -596,6 +596,5 @@ function createElemWithText(htmlElem = "p", textContent = "", className = "") {
     initPage();
     let menu = document.querySelector('#selectMenu');
     menu.addEventListener('change', selectMenuChangeEventHandler, false);
-    document.addEventListener("DOMContentLoaded", initApp, false);
   }
-  initApp();
+  document.addEventListener("DOMContentLoaded", initApp, false);
